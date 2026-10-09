@@ -1,0 +1,34 @@
+Dataset Name: Airlines Seat Booking
+
+Raw Data File: customer_booking.csv
+
+Source Platform: Kaggle
+
+Dataset Publisher: Anand Shaw (anandshaw2001)
+
+Dataset URL:
+https://www.kaggle.com/datasets/anandshaw2001/airlines-booking-csv/data
+
+License: CC0 1.0 Universal (Public Domain)
+
+License URL:
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Original Purpose:
+According to the Kaggle description, the dataset provides airline
+booking information for analyzing demand, popular routes, and
+customer preferences. It includes booking characteristics,
+optional service preferences, and a booking completion indicator.
+
+Purpose in This Project:
+The dataset will support the CCO Flight Booking & Passenger
+Advisory Dashboard. The team will use supervised classification
+to predict booking completion and examine relevant booking
+patterns to inform commercial recommendations.
+
+Data Handling:
+customer_booking.csv is retained as the original downloaded file.
+Preprocessing will be documented separately, and cleaned data
+will be saved as preprocessed_data.csv.
+
+Access Date: October 9, 2026
