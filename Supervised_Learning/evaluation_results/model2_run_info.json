@@ -1,0 +1,23 @@
+{
+  "model": "LogisticRegression",
+  "best_params": {
+    "classifier__C": 0.01,
+    "classifier__class_weight": null,
+    "classifier__solver": "liblinear"
+  },
+  "default_threshold": 0.5,
+  "tuned_threshold": 0.16,
+  "threshold_rule": "maximum out-of-fold F1 on the training set",
+  "tuning_metric": "roc_auc",
+  "cv": "StratifiedGroupKFold, 5 folds, groups = identical feature rows",
+  "random_state": 42,
+  "n_combinations": 20,
+  "tuning_time_seconds": 37.42150169199999,
+  "final_fit_time_seconds": 0.13199877738952637,
+  "test_predict_time_seconds": 0.004352460000006886,
+  "n_train_rows": 39989,
+  "n_test_rows": 10011,
+  "n_coefficients": 23,
+  "positive_class": 1,
+  "sklearn_version": "1.6.1"
+}
