@@ -16,7 +16,7 @@ Names are retained in Arabic as provided in the group sheet to avoid guessing of
 | C | أميرة السيف | 444200329 | Preprocessing and feature engineering |
 | D | منار بن دحمان | 444204602 | Supervised Model 1 |
 | E | ريم العليان | 444203000 | Supervised Model 2 and evaluation results |
-| F | يمنى سعدالدين نطار | 444204759 | Comparative analysis and final recommendation |
+| F | يمنى سعدالدين بيطار | 444204759 | Comparative analysis and final recommendation |
 
 The detailed responsibilities, planned internal deadlines, and learning reflection template are in [docs/task_distribution.md](docs/task_distribution.md).
 

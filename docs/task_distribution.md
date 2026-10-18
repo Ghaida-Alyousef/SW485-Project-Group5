@@ -14,7 +14,7 @@
 | C | أميرة السيف | 444200329 | Preprocessing and feature engineering |
 | D | منار بن دحمان | 444204602 | Supervised Model 1 |
 | E | ريم العليان | 444203000 | Supervised Model 2 and evaluation results |
-| F | يمنى سعدالدين نطار | 444204759 | Comparative analysis |
+| F | يمنى سعدالدين بيطار | 444204759 | Comparative analysis |
 
 ## Responsibilities and Deliverables
 
@@ -74,7 +74,7 @@
 
 **Deliverables:** Model 2 sections in `Supervised_Learning/Phase1_Supervised_Learning.ipynb` and saved results in `evaluation_results/`.
 
-### Member F — يمنى سعدالدين نطار
+### Member F — يمنى سعدالدين بيطار
 
 - Compare both models using the saved outputs and explain which performed best for the business objective.
 - Analyze misclassified records, error patterns, and classes that were difficult to predict.
@@ -125,7 +125,7 @@ Each member must write her own reflection after completing the work. Reflections
 | C — أميرة السيف | Pending — to be written by Member C |
 | D — منار بن دحمان | Pending — to be written by Member D |
 | E — ريم العليان | Pending — to be written by Member E |
-| F — يمنى سعدالدين نطار | Pending — to be written by Member F |
+| F — يمنى سعدالدين بيطار | Pending — to be written by Member F |
 
 ### Reflection Template
 
