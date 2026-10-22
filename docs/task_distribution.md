@@ -109,23 +109,14 @@ Only the October 22 deadline is specified by the handbook. The dates below are s
 | C | Cleaned dataset and preprocessing handoff | October 15, 2026 |
 | D and E | Model training, tuning, and saved evaluation results | October 18, 2026 |
 | F | Comparison, error analysis, and recommendation | October 20, 2026 |
-| All; A coordinates | Final review, notebook execution, documentation, and reflections | October 21, 2026 |
+| All; A coordinates | Final review, notebook execution, and documentation | October 21, 2026 |
 | Designated LMS submitter — to be assigned | Submit the GitHub link | October 22, 2026 |
 
 Members D and E can prepare model code while preprocessing is underway. Member F can draft comparison criteria early, but performance conclusions depend on actual results.
 
 ## Individual Learning Reflections
 
-Each member must write her own reflection after completing the work. Reflections must describe actual learning and challenges; the entries below are placeholders, not completed reflections.
-
-| Member | Reflection Status |
-| --- | --- |
-| A — غيداء اليوسف | Pending — to be written by Member A |
-| B — غلا آل الشيخ | Pending — to be written by Member B |
-| C — أميرة السيف | Pending — to be written by Member C |
-| D — منار بن دحمان | Pending — to be written by Member D |
-| E — ريم العليان | Pending — to be written by Member E |
-| F — يمنى سعدالدين بيطار | Pending — to be written by Member F |
+Reflections will be written at the end of the project and included in the final report, as required in Section 3.1 of the handbook.
 
 ### Reflection Template
 
