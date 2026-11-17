@@ -16,7 +16,7 @@ Names are retained in Arabic as provided in the group sheet to avoid guessing of
 | C | أميرة السيف | 444200329 | Preprocessing and feature engineering |
 | D | منار بن دحمان | 444204602 | Supervised Model 1 |
 | E | ريم العليان | 444203000 | Supervised Model 2 and evaluation results |
-| F | يمنى سعدالدين نطار | 444204759 | Comparative analysis and final recommendation |
+| F | يمنى سعدالدين بيطار | 444204759 | Comparative analysis and final recommendation |
 
 The detailed responsibilities, planned internal deadlines, and learning reflection template are in [docs/task_distribution.md](docs/task_distribution.md).
 
@@ -32,11 +32,11 @@ Booking completion is commercially relevant because incomplete bookings represen
 
 **Business problem:** Commercial managers need to identify booking attempts that are less likely to be completed and understand the associated booking characteristics. Reviewing individual records manually does not provide a consistent way to prioritize attention or summarize patterns.
 
-**Proposed classification task:** Predict whether a booking will be completed using the available booking and passenger-related attributes. The team will confirm the target column, class definitions, feature availability, and dataset dimensions during initial inspection before training.
+**Classification task:** Predict whether a booking will be completed (`booking_complete`: 0 = incomplete, 1 = completed) using 13 booking and passenger-related features. This is a binary classification problem.
 
 **Intended decision support:** Present estimated booking completion likelihood, relevant model drivers, passenger segments, and suggested commercial actions. Example actions include targeted re-engagement or reviewing ancillary bundles. Model associations will inform hypotheses; they will not establish that an intervention causes higher conversion.
 
-The system is an academic prototype. Real pricing and intervention decisions would require additional data and validation. In particular, scenario controls must use supported inputs, and the dashboard must not claim to estimate the effect of price changes if price is absent from the dataset.
+The system is an academic prototype. Real pricing and intervention decisions would require additional data and validation. The dataset does not include price, so the dashboard will not claim to estimate the effect of price changes.
 
 ## Dataset Selection and Justification
 
@@ -46,14 +46,27 @@ The system is an academic prototype. Real pricing and intervention decisions wou
 
 The supplied domain approval screenshot identifies the project as a **Chief Commercial Officer (CCO) Flight Booking & Passenger Advisory Dashboard**.
 
-| Criterion | Justification and verification plan |
+| Criterion | Justification |
 | --- | --- |
-| Relevance | The dataset concerns airline bookings and aligns with the selected CCO booking advisory domain. Initial inspection will confirm that its target supports booking completion classification. |
-| Completeness | Member B will record the row count, feature count, data types, target classes, and missingness. The dataset must satisfy the handbook requirements of several hundred rows, at least 10–15 features, and at least two classes. |
-| Quality | Members B and C will inspect missing values, duplicates, inconsistent categories, unusual values, and class imbalance. Quality conclusions will be based on the actual CSV rather than assumed from its source. |
-| Accessibility | The selected source provides a tabular dataset suitable for a Python-based analysis workflow. The downloaded raw file will be retained separately from processed outputs. |
+| Relevance | The dataset contains airline booking records with sales channel, trip type, purchase lead time, route, booking origin, flight duration, and optional service preferences. Its target, `booking_complete`, directly matches the CCO booking advisory problem. |
+|Completeness|  50,000 bookings, 13 input features, and no missing values. This meets the handbook requirements of several hundred rows, at least 10–15 features, and at least two classes. |
+| Quality |No missing values. 719 fully duplicated rows were found; since there is no booking ID, they were kept and a group-aware split was used. The target is imbalanced (85.04% incomplete, 14.96% completed), which is handled in evaluation. |
+| Accessibility | The data is a single CSV file that can be read directly in Python. The raw file is kept unchanged in `Dataset/customer_booking.csv`.|
 
-The exact CSV filename, verified dimensions, license, and original purpose must be recorded in `Dataset/dataset_info.txt` after checking the downloaded data and source metadata. These details have not been independently established in this documentation draft.
+The source URL, license, and original purpose are recorded in [Dataset/dataset_info.txt](Dataset/dataset_info.txt).
+
+## Phase 1 Results at a Glance
+
+| Item | Result |
+| --- | --- |
+| Dataset | 50,000 bookings, 13 input features, binary target `booking_complete` |
+| Class balance | 85% incomplete, 15% completed |
+| Models compared | Random Forest and Logistic Regression |
+| Evaluation | 5-fold grouped cross-validation and a held-out test set of 10,011 bookings |
+| Best model | **Random Forest** |
+| Test ROC-AUC | **0.782** (Logistic Regression: 0.691) |
+| Test F1-score (completed class) | **0.438** at threshold 0.19 (Logistic Regression: 0.354 at threshold 0.16) |
+| Strongest predictor | Booking origin |
 
 ## Phase 1 Scope
 
@@ -67,23 +80,30 @@ The exact CSV filename, verified dimensions, license, and original purpose must 
 6. Evaluate accuracy, precision, recall, F1-score, confusion matrices, and ROC-AUC for a binary target; include suitable visualizations.
 7. Compare errors, interpretability, and computational cost, then recommend a model for Phase 2.
 
-For a fair comparison, both models should use the same target definition, data split, and evaluation protocol. Learned preprocessing must be fitted only on training data and within cross-validation folds to prevent data leakage.
+Both models use the same target definition, train/test split, cross-validation folds, and evaluation metrics, so the comparison is fair. Encoders and the scaler were fitted on the training data only to prevent data leakage.
 
-## Planned Repository Structure
-
-This table describes the intended repository layout. Only this README and the task distribution document are supplied in the current documentation package; the remaining files will be added by their assigned owners.
+## Phase 1 Repository Structure
 
 | Path | Purpose |
 | --- | --- |
-| `README.md` | Project overview, motivation, team details, and navigation |
-| `.gitignore` | Exclude secrets, local environments, caches, and notebook checkpoints |
-| `Dataset/<raw_dataset_filename>.csv` | Original downloaded CSV, unchanged |
-| `Dataset/dataset_info.txt` | Source URL, verified license, and original purpose |
-| `Dataset/preprocessed_data.csv` | Cleaned data for the modeling handoff; fitted transformations remain in model pipelines |
+| `README.md` | Project overview, motivation, team details, results, and navigation |
+| `.gitignore` | Excludes secrets, local environments, caches, and notebook checkpoints |
+| `Dataset/customer_booking.csv` | Original downloaded CSV, unchanged |
+| `Dataset/dataset_info.txt` | Source URL, license, and original purpose |
+| `Dataset/preprocessed_data.csv` | Encoded and scaled data for modeling, with a `data_split` column marking training and testing rows |
+| `Dataset/train_preprocessed.csv`, `Dataset/test_preprocessed.csv` | The same training and testing sets saved separately |
 | `Phase1_Data_Exploration.ipynb` | Problem statement, dataset justification, inspection, EDA, preprocessing, and insights |
-| `Supervised_Learning/Phase1_Supervised_Learning.ipynb` | Both models, tuning, evaluation, comparison, and integration recommendations |
-| `evaluation_results/` | Saved metrics, predictions, tuning summaries, and evaluation plots |
+| `Supervised_Learning/Phase1_Supervised_Learning.ipynb` | Both models, tuning, evaluation, comparison, and Phase 2 next steps |
+| `Supervised_Learning/evaluation_results/` | Saved metrics, test predictions, cross-validation folds, tuning results, and feature importance for both models |
+| `Supervised_Learning/plots/` | Evaluation plots for both models |
 | `docs/task_distribution.md` | Individual responsibilities, handoffs, deadlines, and learning reflections |
+
+## How to Run
+
+1. Open `Supervised_Learning/Phase1_Supervised_Learning.ipynb` in Google Colab or Jupyter and run all cells. If the local data file is not found, the notebook reads it directly from this GitHub repository.
+2. The results are saved in `evaluation_results/` and the plots in `plots/`, next to the notebook.
+
+The results in this repository were produced in Google Colab with scikit-learn 1.6.1 and random seed 42. The Random Forest hyperparameter search takes about 35 minutes on a free Colab session. Running on a different computer can produce slightly different cross-validation folds.
 
 ## Phase 2 Plan
 
@@ -96,11 +116,8 @@ This table describes the intended repository layout. Only this README and the ta
 
 Phase 2 roles will be assigned separately. All members must participate in at least one ML component across the project, and role rotation is recommended by the handbook.
 
-## Current Status and Reproducibility
-
-This README records the agreed domain and Phase 1 role allocation. It does not claim that analysis, model training, evaluation, or dashboard deployment has been completed.
-
-Once implementation is available, the team will add verified environment requirements, execution instructions, random seeds, dataset dimensions, actual results, and the final dashboard URL.
+## Dashboard
+The dashboard link will be added here in Phase 2.
 
 ## Collaboration and Assistive Tools
 
