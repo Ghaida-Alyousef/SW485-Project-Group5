@@ -1,0 +1,15 @@
+{
+  "final_algorithm": "K-Means",
+  "kmeans_k": 7,
+  "kmeans_labels_source": "Unsupervised_Learning\\clustered_data.csv",
+  "gmm_input": "PCA, 8 components (85.6% of variance)",
+  "gmm_covariance_type": "full",
+  "gmm_k": 5,
+  "gmm_n_init": 10,
+  "gmm_fit_seconds": 19.337539600001037,
+  "kmeans_fit_seconds": 1.9839567999988503,
+  "silhouette_sample": 10000,
+  "ari_kmeans_vs_gmm": 0.36411539861893977,
+  "random_state": 42,
+  "sklearn_version": "1.9.0"
+}
