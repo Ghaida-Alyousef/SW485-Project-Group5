@@ -218,3 +218,13 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Generative AI API keys (Phase 2)
+#   Keys live only in a local .env file or in Colab Secrets, never in the repository.
+#   Generative_AI/api_config_template.py is committed because it contains no keys.
+.env.*
+!.env.example
+*.key
+api_keys.*
+Generative_AI/api_config.py
+Generative_AI/secrets/
