@@ -1,0 +1,7 @@
+case,row_id,template,model,word_count,keyword_alignment_pct,flesch_kincaid_grade
+Case 1 - Low,9669,T1,gemini-3.6-flash,185,66.67,9.78
+Case 2 - Borderline,11278,T1,gemini-3.6-flash,193,58.33,10.45
+Case 3 - High,35092,T1,gemini-3.6-flash,184,58.33,9.63
+Case 1 - Low,9669,T2,gemini-3.6-flash,584,91.67,13.81
+Case 2 - Borderline,11278,T2,gemini-3.6-flash,587,91.67,14.52
+Case 3 - High,35092,T2,gemini-3.6-flash,676,75.0,14.09
