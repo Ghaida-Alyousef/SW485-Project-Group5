@@ -1,0 +1,25 @@
+{
+  "model": "RandomForestClassifier",
+  "best_params": {
+    "n_estimators": 300,
+    "min_samples_leaf": 20,
+    "max_features": 0.5,
+    "max_depth": 20,
+    "criterion": "entropy",
+    "class_weight": null
+  },
+  "default_threshold": 0.5,
+  "tuned_threshold": 0.19,
+  "threshold_rule": "maximum out-of-fold F1 on the training set",
+  "tuning_metric": "roc_auc",
+  "cv": "StratifiedGroupKFold, 5 folds, groups = identical feature rows",
+  "random_state": 42,
+  "n_iter_random_search": 30,
+  "tuning_time_seconds": 2276.5952152709997,
+  "final_fit_time_seconds": 17.729613542556763,
+  "test_predict_time_seconds": 0.47092072900022686,
+  "n_train_rows": 39989,
+  "n_test_rows": 10011,
+  "positive_class": 1,
+  "sklearn_version": "1.6.1"
+}

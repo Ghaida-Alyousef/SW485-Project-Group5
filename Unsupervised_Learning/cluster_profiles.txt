@@ -1,0 +1,66 @@
+CLUSTER PROFILES - FINAL SEGMENTS (K-MEANS, k=7)
+Source: Phase2_Unsupervised_Learning.ipynb. Completion rates were calculated after clustering;
+they describe the segments and were not used to form them (association, not causation).
+
+Segment 2: Short trips, few extras  (16,075 bookings, 32.1%)
+  Meaning: The largest general group: short stays and few extra services.
+  Completion rate: 16.5%
+  Median purchase lead: 36 days | median stay: 6 days
+  Mean passengers: 1.35 | mean flight duration: 6.38 h
+  Extra baggage / preferred seat / meals: 45% / 6% / 10%
+  Share from Australia: 12% | share on AKLKUL: 0% | mobile: 13%
+  Suggested action: Keep checkout simple and test light bundle offers.
+
+Segment 1: Top market (Australia)  (13,272 bookings, 26.5%)
+  Meaning: The largest market, with the lowest completion rate.
+  Completion rate: 5.4%
+  Median purchase lead: 48 days | median stay: 22 days
+  Mean passengers: 1.30 | mean flight duration: 8.46 h
+  Extra baggage / preferred seat / meals: 73% / 34% / 55%
+  Share from Australia: 99% | share on AKLKUL: 0% | mobile: 8%
+  Suggested action: Review the booking journey and offers for this market first; it is the biggest conversion opportunity.
+
+Segment 6: Extra-service lovers  (9,577 bookings, 19.2%)
+  Meaning: Customers who choose baggage, seats and meals.
+  Completion rate: 23.8%
+  Median purchase lead: 42 days | median stay: 6 days
+  Mean passengers: 1.45 | mean flight duration: 6.86 h
+  Extra baggage / preferred seat / meals: 94% / 68% / 84%
+  Share from Australia: 7% | share on AKLKUL: 0% | mobile: 13%
+  Suggested action: Offer premium bundles and loyalty rewards; this is the most engaged group.
+
+Segment 0: Early planners  (4,772 bookings, 9.5%)
+  Meaning: Bookings made many months before the flight.
+  Completion rate: 14.2%
+  Median purchase lead: 269 days | median stay: 6 days
+  Mean passengers: 1.74 | mean flight duration: 7.13 h
+  Extra baggage / preferred seat / meals: 54% / 21% / 27%
+  Share from Australia: 23% | share on AKLKUL: 0% | mobile: 12%
+  Suggested action: Use reminders and price-lock offers to keep these customers engaged until they complete.
+
+Segment 3: Group travellers  (2,792 bookings, 5.6%)
+  Meaning: Bookings for 3 or more passengers.
+  Completion rate: 16.7%
+  Median purchase lead: 98 days | median stay: 6 days
+  Mean passengers: 4.66 | mean flight duration: 6.88 h
+  Extra baggage / preferred seat / meals: 84% / 32% / 48%
+  Share from Australia: 26% | share on AKLKUL: 0% | mobile: 11%
+  Suggested action: Offer group support and multi-passenger deals; a group that drops out is several lost seats.
+
+Segment 4: Top route (AKLKUL)  (2,624 bookings, 5.2%)
+  Meaning: Bookings on the busiest single route.
+  Completion rate: 21.1%
+  Median purchase lead: 102 days | median stay: 21 days
+  Mean passengers: 1.65 | mean flight duration: 8.83 h
+  Extra baggage / preferred seat / meals: 68% / 23% / 45%
+  Share from Australia: 1% | share on AKLKUL: 100% | mobile: 9%
+  Suggested action: Monitor this route separately (capacity, price and completion) and treat it as a key route in the dashboard.
+
+Segment 5: Long-stay travellers  (888 bookings, 1.8%)
+  Meaning: Very long stays (months), a small and unusual group.
+  Completion rate: 13.3%
+  Median purchase lead: 31 days | median stay: 175 days
+  Mean passengers: 1.25 | mean flight duration: 7.73 h
+  Extra baggage / preferred seat / meals: 88% / 39% / 59%
+  Share from Australia: 44% | share on AKLKUL: 5% | mobile: 7%
+  Suggested action: Check these records for data errors first; if real, consider flexible-return products.
